@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play2Learn</title>
+    <style>
+        body {
+            font-family: Arial, 'Courier New', Courier, monospace;
+            margin: 0;
+          padding:0;
+        }
+
+        header {
+            background-color: rgb(255, 255, 255);
+            padding: 2em;
+            text-align: center;
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        .game-card {
+            border: 1px solid #ccc;
+            padding: 1em;
+            margin-bottom: 1em;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+      nav {
+  background: rgb(61, 60, 60);
+  margin: 0 -0.5rem;
+  font-size: 1.2rem;
+  position: relative; /* Ensures the nav container is the reference point for absolute positioning of the logo */
+ 
+}
+
+nav::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  float: left;
+}
+
+nav a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: white;
+}
+
+nav li:hover {
+  background: rgb(0, 0, 0);
+}
+
+nav a:active {
+  color: #cce;
+}
+
+li.contains ul {
+  display: none;
+}
+
+li.contains:hover ul {
+  background: rgb(0, 0, 0);
+  display: block;
+  position: absolute;
+}
+
+li.contains li {
+  float: none;
+  font-size: 0.9rem;
+}
+
+button {
+  background-color: #528a55;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+button a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.site-footer {
+  display: flex;
+ justify-content: space-between;                /* Pushes text to the left, icons to the right */
+  align-items: center;            /* Perfectly centers them vertically on the same line */
+  padding: 20px;
+  background-color: #ffffff;      /* Optional background color */
+  border-top: 1px solid #000000; /* Optional top border for the footer */
+ 
+}
+
+/* Removes default paragraph margins so it aligns properly */
+.copyright {
+  margin: 0;
+  font-size: 14px;
+  color: #000000; /* Optional text color for the copyright text */
+    
+}
+
+/* Arranges the icons horizontally next to each other */
+.bottom-app-nav {
+  display: flex;
+  gap: 13px; 
+  background-color: #ffffff; 
+                     
+}
+
+.nav-icon {
+  width: 24px;                    /* Standard footer icon size */
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+
+#quote-container {
+  color: #54a969;
+}
+
+
+
+
+
+.nav-logo {
+     position: absolute;
+    right: 20px;                 /* Distance from the far right edge */
+    top: 50%;                    /* Move down 50% from the top */
+    transform: translateY(-50%); /* Perfectly center it vertically */
+    
+    font-weight: bold;
+    font-size: 1.5rem;
+    list-style: none; 
+    color: white;
+}
+
+
+  h4 {
+    color: #314756; /* Sets the color for the h4 heading */
+    
+  }
+
+
+
+    </style>
+
+
+</head>
+<body>
+    
+ <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="contains"> 
+            <a href="#">Games</a>
+            <ul class="submenu">
+                <li><a href="math-facts.html">Math Facts Practice</a></li>
+                <li><a href="anagram-hunt.html">Anagram Hunt</a></li>
+            </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="login.html">Login</a></li>
+
+
+
+             <li class="nav-logo">Play2Learn</li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Welcome to Play2Learn!</h1>
+        
+        <h4>Happy Clients Say...</h4>
+
+        <div id="quote-container">
+          <p id="quote-text">"Math Facts practice is more fun and engaging than traditional learning methods." </p>
+          <p id="quote-author">-Marissa Vargas</p>
+        </div>
+       
+        
+    </header>
+
+    <main>
+        <section id="featured-games">
+            <h2>Featured Games</h2>
+            <div class="game-card">
+                <h3>Math Facts Practice</h3>
+                <p>Embark on a journey to solve math puzzles and challenges.</p>
+                <button><a href="math-facts.html">Play</a></button>
+            </div>
+            <div class="game-card">
+                <h3>Anagram Hunt</h3>
+                <p>Go on a discovery adventure with anagrams and word puzzles.</p>
+                <button><a href="#">Play</a></button>
+            </div>
+        </section>
+
+      
+     <script>
+
+
+
+
+      const quotes = [
+        { text: "\"Math Facts practice is more fun and engaging than traditional learning methods.\" ", author: "-Marissa Vargas" },
+        { text: "\"Anagram Hunt is a fantastic way to improve vocabulary and problem-solving skills.\" ", author: "-John Doe" },
+        { text: "\"Play2Learn makes learning interactive and enjoyable for kids of all ages.\" ", author: "-Anna Smith" }
+      ];
+
+      let currentQuoteIndex = 0;
+
+      function changeQuote() {
+        const quoteText = document.getElementById("quote-text");
+        const quoteAuthor = document.getElementById("quote-author");
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+        quoteText.textContent = quotes[currentQuoteIndex].text;
+        quoteAuthor.textContent = quotes[currentQuoteIndex].author;
+      }
+
+      setInterval(changeQuote, 10000); // Change quote every 10 seconds
+     </script>
+
+
+
+
+       
+       
+    </main>
+
+    <footer class="site-footer">
+        <p class="copyright">&copy; 2026 Play2Learn</p>    
+   
+  <nav class="bottom-app-nav">
+    <a href="contact-us.html">
+      <img src="icons/icon-contact-us.png" alt="Contact Us" class="nav-icon">
+    </a>
+    <a href="https://instagram.com" target="_blank">
+      <img src="icons/icon-instagram.png" alt="Instagram" class="nav-icon">
+    </a>
+    <a href="https://twitter.com" target="_blank">
+      <img src="icons/icon-twitter.png" alt="Twitter" class="nav-icon">
+    </a>
+    <a href="https://facebook.com" target="_blank">
+      <img src="icons/icon-facebook.png" alt="Facebook" class="nav-icon">
+    </a>
+  </nav>
+</footer>
+
+
+
+
+
+
+
+</body>
+</html>
