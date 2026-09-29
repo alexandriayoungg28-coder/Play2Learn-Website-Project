@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play2Learn</title>
+    <style>
+        body {
+            font-family: Arial, 'Courier New', Courier, monospace;
+            margin: 0;
+          padding:0;
+        }
+
+        form {
+           display: flex;
+           flex-direction: column;
+           max-width: 400px;
+           margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+         }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+          
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+                                       
+        }
+       
+      nav {
+  background: rgb(61, 60, 60);
+  margin: 0 -0.5rem;
+  font-size: 1.2rem;
+  position: relative; /* Ensures the nav container is the reference point for absolute positioning of the logo */
+ 
+}
+
+nav::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  float: left;
+}
+
+nav a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: white;
+}
+
+nav li:hover {
+  background: rgb(0, 0, 0);
+}
+
+nav a:active {
+  color: #cce;
+}
+
+li.contains ul {
+  display: none;
+}
+
+li.contains:hover ul {
+  background: rgb(0, 0, 0);
+  display: block;
+  position: absolute;
+}
+
+li.contains li {
+  float: none;
+  font-size: 0.9rem;
+}
+
+
+.site-footer {
+  display: flex;
+ justify-content: space-between;                /* Pushes text to the left, icons to the right */
+  align-items: center;            /* Perfectly centers them vertically on the same line */
+  padding: 20px;
+  background-color: #ffffff;      /* Optional background color */
+  border-top: 1px solid #000000; /* Optional top border for the footer */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000; /* Ensures the footer stays on top of other content */
+}
+
+/* Removes default paragraph margins so it aligns properly */
+.copyright {
+  margin: 0;
+  font-size: 14px;
+  color: #000000; /* Optional text color for the copyright text */
+    
+}
+
+/* Arranges the icons horizontally next to each other */
+.bottom-app-nav {
+  display: flex;
+  gap: 13px; 
+  background-color: #ffffff; 
+                     
+}
+
+.nav-icon {
+  width: 24px;                    /* Standard footer icon size */
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+h2 { 
+   font-size: 2em; /* Sets a large font size for the main heading */
+  text-align: center; /* Centers the heading within its container */
+  margin-bottom: 20px; /* Adds space below the heading for better spacing */
+}
+
+
+.nav-logo {
+     position: absolute;
+    right: 20px;                 /* Distance from the far right edge */
+    top: 50%;                    /* Move down 50% from the top */
+    transform: translateY(-50%); /* Perfectly center it vertically */
+    
+    font-weight: bold;
+    font-size: 1.5rem;
+    list-style: none; 
+    color: white;
+}
+
+
+</style>
+</head>
+<body>
+
+  <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="contains"> 
+            <a href="#">Games</a>
+            <ul class="submenu">
+                <li><a href="math-facts.html">Math Facts Practice</a></li>
+                <li><a href="anagram-hunt.html">Anagram Hunt</a></li>
+            </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="login.html">Login</a></li>
+
+            <li class="nav-logo">Play2Learn</li>
+        </ul>
+    </nav>
+
+
+    <div id="login-container">
+    <h2> Log in</h2>
+    <form action="javascript:alert('Form submitted!');" method="POST">
+        <label for="Email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <!-- Added a fixed width of 100px -->
+<input type="submit" value="Login" style="width: 100px; padding: 6px; cursor: pointer;">
+         <a href="#" id="to-register"> Need an account? Register</a>
+    </div>
+        </form>
+
+        <div id="register-container" style="display: none;">
+         <form id="register-form" action="javascript:alert('Form submitted!');" method="POST" >
+        <h2>Register</h2>
+        <label for="reg-email">Email:</label><br>
+        <input type="email" id="reg-email" name="email" required><br><br>
+
+        <label for="reg-password">Password:</label><br>
+        <input type="password" id="reg-password" name="password" required><br><br>
+        <label for="reg-repeat-password">Repeat Password:</label><br>
+        <input type="password" id="reg-repeat-password" name="repeat-password" required> 
+<div style="text-align: center; margin-bottom: 25px;">
+    <label for="over-13" style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px;">
+        <input type="checkbox" id="over-13" name="over-13" required style="margin: 0;"> 
+        I am over 13 and like playing games
+    </label>
+</div>
+        <!-- Added a fixed width of 100px -->
+<input type="submit" value="Register" style="width: 100px; padding: 6px; cursor: pointer;">
+        <a href="#" id="to-login"> Have an account? Login</a>
+       
+
+        </form>
+        </div>
+    
+        <script>
+        // hide login form and show registration form when the link is clicked //
+        document.getElementById('to-register').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('register-container').style.display = 'block';
+       
+        });
+      // Hide registration form and show login form when clicked
+    document.getElementById('to-login').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('register-container').style.display = 'none';
+        document.getElementById('login-container').style.display = 'block';
+    });
+
+
+
+
+        </script>
+    </form>
+    
+     <footer class="site-footer">
+        <p class="copyright">&copy; 2026 Play2Learn</p>    
+   
+  <nav class="bottom-app-nav">
+    <a href="contact-us.html">
+      <img src="icons/icon-contact-us.png" alt="Contact Us" class="nav-icon">
+    </a>
+    <a href="https://instagram.com" target="_blank">
+      <img src="icons/icon-instagram.png" alt="Instagram" class="nav-icon">
+    </a>
+    <a href="https://twitter.com" target="_blank">
+      <img src="icons/icon-twitter.png" alt="Twitter" class="nav-icon">
+    </a>
+    <a href="https://facebook.com" target="_blank">
+      <img src="icons/icon-facebook.png" alt="Facebook" class="nav-icon">
+      
+    </a>
+  </nav>
+</footer>
+
+
+
+
+
+
+</body>
+</html>
