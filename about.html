@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play2Learn</title>
+    <style>
+     
+
+     body {
+            font-family: Arial, 'Courier New', Courier, monospace;
+            margin: 0;
+          padding:0;
+        }
+
+
+  
+      nav {
+  background: rgb(61, 60, 60);
+  margin: 0 -0.5rem;
+  font-size: 1.2rem;
+  position: relative; /* Ensures the nav container is the reference point for absolute positioning of the logo */
+ 
+}
+
+nav::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  float: left;
+}
+
+nav a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: white;
+}
+
+nav li:hover {
+  background: rgb(0, 0, 0);
+}
+
+nav a:active {
+  color: #cce;
+}
+
+li.contains ul {
+  display: none;
+}
+
+li.contains:hover ul {
+  background: rgb(0, 0, 0);
+  display: block;
+  position: absolute;
+}
+
+li.contains li {
+  float: none;
+  font-size: 0.9rem;
+}
+
+
+.site-footer {
+  display: flex;
+ justify-content: space-between;                /* Pushes text to the left, icons to the right */
+  align-items: center;            /* Perfectly centers them vertically on the same line */
+  padding: 20px;
+  background-color: #ffffff;      /* Optional background color */
+  border-top: 1px solid #000000; /* Optional top border for the footer */
+  position: fixed;               /* Locks it relative to the viewport/screen */
+  bottom: 0;                     /* Sticks it perfectly to the bottom edge */
+  width: 100%;                     /* Ensures it spans the full width of the viewport */
+  box-sizing: border-box;          /* Critical: stops the 20px padding from making the footer wider than the screen */
+  z-index: 1000; /* Ensures the footer stays on top of other content */
+}
+
+/* Removes default paragraph margins so it aligns properly */
+.copyright {
+  margin: 0;
+  font-size: 14px;
+  color: #000000; /* Optional text color for the copyright text */
+    
+}
+
+/* Arranges the icons horizontally next to each other */
+.bottom-app-nav {
+  display: flex;
+  gap: 13px; 
+  background-color: #ffffff; 
+                     
+}
+
+.nav-icon {
+  width: 24px;                    /* Standard footer icon size */
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+p { 
+  font-size: 16px; /* Sets a comfortable reading size for the paragraph text */
+  
+  color: #333333; /* Sets a dark gray color for the paragraph text */
+  text-align: justify; /* Justifies the text for a cleaner and more professional look */
+  text-indent: 40px;
+  max-width: 800px; /* Sets a maximum width for the paragraph to improve readability */
+  margin: 0 auto; /* Centers the paragraph horizontally within its container */
+  
+
+}
+
+h1 {
+  font-size: 2em; /* Sets a large font size for the main heading */
+  text-align: center; /* Centers the heading within its container */
+  margin-bottom: 20px; /* Adds space below the heading for better spacing */
+}
+
+
+
+.nav-logo {
+     position: absolute;
+    right: 20px;                 /* Distance from the far right edge */
+    top: 50%;                    /* Move down 50% from the top */
+    transform: translateY(-50%); /* Perfectly center it vertically */
+    
+    font-weight: bold;
+    font-size: 1.5rem;
+    list-style: none; 
+    color: white;
+}
+
+</style>
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="contains"> 
+            <a href="#">Games</a>
+            <ul class="submenu">
+                <li><a href="math-facts.html">Math Facts Practice</a></li>
+                <li><a href="anagram-hunt.html">Anagram Hunt</a></li>
+            </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="login.html">Login</a></li>
+
+            <li class="nav-logo">Play2Learn</li>
+        </ul>
+    </nav>
+        <h1>About Us </h1>
+        <p> 
+
+          Welcome to Play2Learn! We are dedicated to providing engaging and educational games for children of all ages.
+            Our mission is to make learning fun and interactive, helping kids develop essential skills while enjoying themselves.
+           Our team of educators and game developers works tirelessly to create content that is both entertaining and educational, 
+         ensuring that every child has the opportunity to learn and grow in a supportive environment.
+         We believe that learning should be an enjoyable experience, and we are committed to continuously improving our games
+         to provide the best possible educational experience for children. 
+         We were founded by Alice Johnson in 2010 with the vision of creating a platform where children could learn through play.
+         Alice Johnson has been passionate about education and child development since a young age, and she founded Play2Learn to bring her vision to life.
+         Under her leadership, Play2Learn has grown into a trusted platform for parents and educators seeking high-quality educational games for children.
+         Our team is committed to staying at the forefront of educational technology, ensuring that our games are not only fun but also aligned with the latest research in child development and learning.
+         We are also dedicated to fostering a community of learners and educators, encouraging collaboration and the sharing of best practices to continuously enhance the educational experience for children.
+         We are also committed to providing resources and support for educators, helping them integrate our games effectively into their teaching practices to maximize the educational impact for children.
+         Our goal is to create a comprehensive educational ecosystem where children, parents, and educators can come together to foster learning and growth in a supportive and engaging environment.
+         We are constantly seeking feedback from our community to refine and expand our offerings, ensuring that we meet the evolving needs of children and educators alike.
+         Our commitment to excellence and innovation drives us to continuously explore new ways to engage children in meaningful learning experiences, fostering a love for learning that lasts a lifetime.
+         We are also focused on making our games accessible to all children, regardless of their background or abilities, ensuring that every child has the opportunity to benefit from our educational content.
+         
+
+
+
+
+
+
+
+        </p>
+
+    <footer class="site-footer">
+        <p class="copyright">&copy; 2026 Play2Learn</p>    
+   
+  <nav class="bottom-app-nav">
+    <a href="https://instagram.com" target="_blank">
+      <img src="icons/icon-instagram.png" alt="Instagram" class="nav-icon">
+    </a>
+    <a href="https://twitter.com" target="_blank">
+      <img src="icons/icon-twitter.png" alt="Twitter" class="nav-icon">
+    </a>
+    <a href="https://facebook.com" target="_blank">
+      <img src="icons/icon-facebook.png" alt="Facebook" class="nav-icon">
+      
+    </a>
+  </nav>
+</footer>
+
+
+
+</body>
+</html>
+
+
