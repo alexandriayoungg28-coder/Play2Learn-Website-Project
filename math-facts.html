@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play2Learn</title>
+    <style>
+        body {
+            font-family: Arial, 'Courier New', Courier, monospace;
+            margin: 0;
+          padding:0;
+        }
+
+        form {
+           display: flex;
+           flex-direction: column;
+           max-width: 400px;
+           margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+         }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+       
+      nav {
+  background: rgb(61, 60, 60);
+  margin: 0 -0.5rem;
+  font-size: 1.2rem;
+  position: relative; /* Ensures the nav container is the reference point for absolute positioning of the logo */
+ 
+}
+
+nav::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  float: left;
+}
+
+nav a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: white;
+}
+
+nav li:hover {
+  background: rgb(0, 0, 0);
+}
+
+nav a:active {
+  color: #cce;
+}
+
+li.contains ul {
+  display: none;
+}
+
+li.contains:hover ul {
+  background: rgb(0, 0, 0);
+  display: block;
+  position: absolute;
+}
+
+li.contains li {
+  float: none;
+  font-size: 0.9rem;
+}
+
+
+.site-footer {
+  display: flex;
+ justify-content: space-between;                /* Pushes text to the left, icons to the right */
+  align-items: center;            /* Perfectly centers them vertically on the same line */
+  padding: 20px;
+  background-color: #ffffff;      /* Optional background color */
+  border-top: 1px solid #000000; /* Optional top border for the footer */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000; /* Ensures the footer stays on top of other content */
+}
+
+/* Removes default paragraph margins so it aligns properly */
+.copyright {
+  margin: 0;
+  font-size: 14px;
+  color: #000000; /* Optional text color for the copyright text */
+    
+}
+
+/* Arranges the icons horizontally next to each other */
+.bottom-app-nav {
+  display: flex;
+  gap: 13px; 
+  background-color: #ffffff; 
+                     
+}
+
+.nav-icon {
+  width: 24px;                    /* Standard footer icon size */
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+button {
+  color: #f8fff9;
+  background-color: #64b871;
+}
+
+
+
+#go-btn {
+  background-color: #64b871;
+  font-size: 24px; /* Sets the font size for the Go button */
+}
+h1 { 
+   font-size: 3em; /* Sets a large font size for the main heading */
+  text-align: center; /* Centers the heading within its container */
+  margin-bottom: 20px; /* Adds space below the heading for better spacing */
+}
+
+#start-area { 
+    position: absolute; /* Positions the start area absolutely within its container */
+    top: 50%; /* Places the start area vertically in the middle of its container */
+    left: 50%; /* Places the start area horizontally in the middle of its container */
+    transform: translate(-50%, -50%); /* Adjusts the start area to be perfectly centered */
+    text-align: center; /* Centers the content within the start area */
+    font-size: 35px; /* Sets the font size for the content within the start area */
+   
+
+}
+#operation { 
+    font-size: 24px; /* Sets the font size for the operation selector */
+    text-align: center; /* Centers the operation selector within its container */
+}
+
+
+.nav-logo {
+     position: absolute;
+    right: 20px;                 /* Distance from the far right edge */
+    top: 50%;                    /* Move down 50% from the top */
+    transform: translateY(-50%); /* Perfectly center it vertically */
+    
+    font-weight: bold;
+    font-size: 1.5rem;
+    list-style: none; 
+    color: white;
+}
+    label[for="operation"] {
+        font-weight: bold; /* Makes the operation label bold */
+    }
+
+    
+
+
+    </style>
+
+
+</head>
+<body>
+    
+ <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="contains"> 
+            <a href="#">Games</a>
+            <ul class="submenu">
+                <li><a href="math-facts.html">Math Facts Practice</a></li>
+                <li><a href="anagram-hunt.html">Anagram Hunt</a></li>
+            </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="login.html">Login</a></li>
+
+            <li class="nav-logo">Play2Learn</li>
+        </ul>
+    </nav>
+
+<h1>Math Facts Practice</h1>
+<h2 id="game-subtitle" style="margin-top: -10px; color: #555; font-weight: normal; font-size: 1.2rem;"></h2>
+
+<!-- Starting Interface Screen -->
+<div id="start-area">
+    <div>
+        <label for="operation">Operation:</label>
+        <select id="operation">
+            <option value="addition">Addition</option>
+            <option value="subtraction">Subtraction</option>
+            <option value="multiplication">Multiplication</option>
+            <option value="division">Division</option>
+        </select>
+        <button type="button" id="go-btn">Go</button>
+    </div>
+
+    <p>1. Select operation.</p>
+    <p>2. Press Go.</p>
+    <p>3. How many problems can you solve in 30 seconds?</p>
+</div>
+
+<!-- Active Game Play Area (Centered layout) -->
+<div id="game-area" style="display: none; margin-top: 20px; text-align: center;">
+    <h3>Time Left: <span id="timer">30</span>s</h3>
+    <div id="problem" style="font-size: 24px; font-weight: bold; margin-bottom: 10px;"></div>
+    
+    <!-- User Input row (No Submit Button) -->
+    <div style="margin-bottom: 15px;">
+        <input type="text" id="user-answer" placeholder="Your answer" autofocus style="font-size: 18px; padding: 5px; width: 120px; text-align: center;">
+    </div>
+
+    <!-- On-Screen Keypad Grid (No Go Button, 0 Balanced across 2 columns) -->
+    <div id="keypad" style="display: grid; grid-template-columns: repeat(3, 70px); gap: 10px; justify-content: center; margin: 0 auto 15px auto;">
+        <button type="button" class="key" style="height: 40px; font-size: 18px;">1</button> 
+        <button type="button" class="key" style="height: 40px; font-size: 18px;">2</button> 
+        <button type="button" class="key" style="height: 40px; font-size: 18px;">3</button>
+        <button type="button" class="key" style="height: 40px; font-size: 18px;">4</button> 
+        <button type="button" class="key" style="height: 40px; font-size: 18px;">5</button> 
+        <button type="button" class="key" style="height: 40px; font-size: 18px;">6</button>
+        <button type="button" class="key" style="height: 40px; font-size: 18px;">7</button> 
+        <button type="button" class="key" style="height: 40px; font-size: 18px;">8</button> 
+        <button type="button" class="key" style="height: 40px; font-size: 18px;">9</button>
+        
+        <button type="button" id="clear-btn" style="background-color: #be3838; height: 40px; font-size: 14px; font-weight: bold;">CLEAR</button>
+        <button type="button" class="key" style="height: 40px; font-size: 18px; grid-column: span 2;">0</button>
+    </div>
+
+    <p id="score-display" style="margin-top: 15px; font-weight: bold; font-size: 18px;"></p>
+    
+    <!-- Non-reloading Play Again control button -->
+    <button type="button" id="play-again-btn" style="display: none; font-size: 18px; padding: 8px 15px; margin-top: 10px;">Play Again</button>
+</div>
+
+
+<script>
+    // Primary element bindings
+    const startArea = document.getElementById('start-area');
+    const operationSelect = document.getElementById('operation');
+    const goButton = document.getElementById('go-btn');
+    const gameArea = document.getElementById('game-area');
+    const problemDiv = document.getElementById('problem');
+    const userAnswerInput = document.getElementById('user-answer');
+    const timerSpan = document.getElementById('timer');
+    const scoreDisplay = document.getElementById('score-display');
+    const playAgainButton = document.getElementById('play-again-btn');
+    
+    // Keypad selection bindings
+    const keys = document.querySelectorAll('.key');
+    const clearBtn = document.getElementById('clear-btn');
+
+    let currentAnswer;
+    let score = 0;
+    let timeLeft = 30;
+    let timerInterval;
+    let gameActive = false;
+
+    // Transitioning from Setup to Game Start
+    goButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        startArea.style.display = 'none'; 
+        initiateGameEngine();
+    });
+    const gameSubtitle = document.getElementById('game-subtitle');
+
+    function initiateGameEngine() {
+        clearInterval(timerInterval); 
+        
+        score = 0;
+        timeLeft = 30;
+        gameActive = true;
+
+        const labels = {
+            addition: 'Addition',
+            subtraction: 'Subtraction',
+            multiplication: 'Multiplication',
+            division: 'Division'
+        };
+        gameSubtitle.textContent = labels[operationSelect.value];
+        
+        timerSpan.textContent = timeLeft;
+        scoreDisplay.textContent = `Score: ${score}`;
+        gameArea.style.display = 'block';
+        playAgainButton.style.display = 'none';
+        
+        userAnswerInput.value = '';
+        userAnswerInput.disabled = false;
+        setTimeout(() => userAnswerInput.focus(), 10);
+
+        generateProblem(operationSelect.value);
+        startTimer();
+    }
+
+    // 30-Second Loop Engine
+    function startTimer() {
+        timerInterval = setInterval(() => {
+            timeLeft--;
+            timerSpan.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                gameActive = false;
+                
+                userAnswerInput.disabled = true;
+                problemDiv.textContent = "Times Up!";
+                scoreDisplay.textContent = `Final Score is: ${score} `;
+                
+                playAgainButton.style.display = 'inline-block';
+            }
+        }, 1000);
+    }
+
+    function generateProblem(operation) {
+        let num1, num2;
+
+        if (operation === 'addition') {
+            num1 = Math.floor(Math.random() * 20) + 1;    // Math.random() only picks decimals between 0 and 1.                                                     
+            num2 = Math.floor(Math.random() * 20) + 1;   // Multiplying by 20 stretches that scale up to generate a normal game number. (that is the purpose of the asterisk) It is used to create a range of numbers for the game.
+            currentAnswer = num1 + num2;
+            problemDiv.textContent = `${num1} + ${num2} `;
+        } 
+        else if (operation === 'subtraction') {
+            num1 = Math.floor(Math.random() * 20) + 1;
+            num2 = Math.floor(Math.random() * 20) + 1;
+            if (num1 < num2) [num1, num2] = [num2, num1]; 
+            currentAnswer = num1 - num2;
+            problemDiv.textContent = `${num1} - ${num2} `;
+        } 
+        else if (operation === 'multiplication') {
+            num1 = Math.floor(Math.random() * 12) + 1;
+            num2 = Math.floor(Math.random() * 12) + 1;
+            currentAnswer = num1 * num2;
+            problemDiv.textContent = `${num1} × ${num2} `;
+        } 
+        else if (operation === 'division') {
+            num2 = Math.floor(Math.random() * 10) + 1;
+            let product = Math.floor(Math.random() * 10) + 1;
+            num1 = num2 * product; 
+            currentAnswer = product;
+            problemDiv.textContent = `${num1} ÷ ${num2} `;
+        }
+    }
+
+    // Strict instructions check logic
+    function checkAnswer() {
+        if (!gameActive) return;
+
+        const userVal = parseInt(userAnswerInput.value, 10);
+        
+        // Match ONLY when the answer is strictly correct!
+        if (userVal === currentAnswer) {
+            score++;
+            scoreDisplay.textContent = `Score: ${score}`;
+            
+            // Per instructions: Emptied, next problem appears, focus returned
+            userAnswerInput.value = '';
+            generateProblem(operationSelect.value);
+        }
+        
+        userAnswerInput.focus();
+    }
+
+    // Listens for direct physical keyboard typing
+    userAnswerInput.addEventListener('input', checkAnswer);
+
+    // Listens for screen keypad clicks
+    keys.forEach(key => {
+        key.addEventListener('click', () => {
+            if (!gameActive) return;
+            userAnswerInput.value += key.textContent;
+            
+            // This instantly runs the check answer logic on every button click
+            checkAnswer();
+        });
+    });
+
+    // Clear button functionality (if they make a typing mistake)
+    clearBtn.addEventListener('click', () => {
+        if (!gameActive) return;
+        userAnswerInput.value = '';
+        userAnswerInput.focus();
+    });
+
+    // Play Again navigation routing
+    playAgainButton.addEventListener('click', () => {
+        gameArea.style.display = 'none'; 
+        gameSubtitle.textContent = '';
+        startArea.style.display = 'block'; 
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="site-footer">
+        <p class="copyright">&copy; 2026 Play2Learn</p>    
+   
+  <nav class="bottom-app-nav">
+    <a href="contact-us.html">
+      <img src="icons/icon-contact-us.png" alt="Contact Us" class="nav-icon">
+    </a>
+    <a href="https://instagram.com" target="_blank">
+      <img src="icons/icon-instagram.png" alt="Instagram" class="nav-icon">
+    </a>
+    <a href="https://twitter.com" target="_blank">
+      <img src="icons/icon-twitter.png" alt="Twitter" class="nav-icon">
+    </a>
+    <a href="https://facebook.com" target="_blank">
+      <img src="icons/icon-facebook.png" alt="Facebook" class="nav-icon">
+    </a>
+  </nav>
+</footer>
