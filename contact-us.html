@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play2Learn</title>
+    <style>
+        body {
+            font-family: Arial, 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        form {
+           display: flex;
+           flex-direction: column;
+           max-width: 400px;
+           margin: 0 auto;
+        }
+
+       
+        
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+         }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+      nav {
+  background: rgb(61, 60, 60);
+  margin: 0 -0.5rem;
+  font-size: 1.2rem;
+ 
+}
+
+nav::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  float: left;
+}
+
+nav a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: white;
+}
+
+nav li:hover {
+  background: rgb(0, 0, 0);
+}
+
+nav a:active {
+  color: #cce;
+}
+
+li.contains ul {
+  display: none;
+}
+
+li.contains:hover ul {
+  background: rgb(0, 0, 0);
+  display: block;
+  position: absolute;
+}
+
+li.contains li {
+  float: none;
+  font-size: 0.9rem;
+}
+
+  
+.site-footer {
+  display: flex;
+ justify-content: space-between;                /* Pushes text to the left, icons to the right */
+  align-items: center;            /* Perfectly centers them vertically on the same line */
+  padding: 20px;
+  background-color: #ffffff;      /* Optional background color */
+  border-top: 1px solid #000000; /* Optional top border for the footer */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000; /* Ensures the footer stays on top of other content */
+}
+
+/* Removes default paragraph margins so it aligns properly */
+.copyright {
+  margin: 0;
+  font-size: 14px;
+  color: #000000; /* Optional text color for the copyright text */
+    
+}
+
+/* Arranges the icons horizontally next to each other */
+.bottom-app-nav {
+  display: flex;
+  gap: 13px; 
+  background-color: #ffffff; 
+                     
+}
+
+.nav-icon {
+  width: 24px;                    /* Standard footer icon size */
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+h2 { 
+   font-size: 2em; /* Sets a large font size for the main heading */
+  text-align: center; /* Centers the heading within its container */
+  margin-bottom: 20px; /* Adds space below the heading for better spacing */
+}
+
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="contains"> 
+            <a href="#">Games</a>
+            <ul class="submenu">
+                <li><a href="math-facts.html">Math Facts Practice</a></li>
+                <li><a href="anagram-hunt.html">Anagram Hunt</a></li>
+            </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+
+<h2>Contact Us</h2>
+            <form action="submit_form.php" method="POST">
+                <label for="Email">Your Email:</label><br>
+                <input type="email" id="email" name="email" required>
+
+                <label for="subject">Subject:</label><br>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                 <br><br>
+                <input type="submit" value="Send" style="width: 100px; padding: 6px; cursor: pointer;">
+                <script>
+                  const form = document.querySelector('form');
+                  form.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent the default form submission
+                    // You can add your form submission logic here, e.g., sending data via AJAX
+                    alert('Form submitted!'); // Show an alert for demonstration purposes
+                  });
+                </script>
+            </form>
+
+              <footer class="site-footer">
+        <p class="copyright">&copy; 2026 Play2Learn</p>    
+   
+  <nav class="bottom-app-nav">
+    <a href="contact-us.html">
+      <img src="icons/icon-contact-us.png" alt="Contact Us" class="nav-icon">
+    </a>
+    <a href="https://instagram.com" target="_blank">
+      <img src="icons/icon-instagram.png" alt="Instagram" class="nav-icon">
+    </a>
+    <a href="https://twitter.com" target="_blank">
+      <img src="icons/icon-twitter.png" alt="Twitter" class="nav-icon">
+    </a>
+    <a href="https://facebook.com" target="_blank">
+      <img src="icons/icon-facebook.png" alt="Facebook" class="nav-icon">
+      
+    </a>
+  </nav>
+</footer>
